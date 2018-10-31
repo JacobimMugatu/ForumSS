@@ -16,5 +16,4 @@ public class NewPostDto {
 	String content;
 	String author;
 	Set<String> tags;
-
 }

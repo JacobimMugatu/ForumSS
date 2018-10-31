@@ -4,12 +4,13 @@ import java.util.Set;
 
 import telran.forum.dto.UserProfileDto;
 import telran.forum.dto.UserRegisterDto;
+import telran.forum.dto.UserUpdateDto;
 
 public interface AccountService {
 
 	public UserProfileDto addUser(UserRegisterDto userRegDto);
 
-	public UserProfileDto editUser(UserRegisterDto userRegDto);
+	public UserProfileDto editUser(UserUpdateDto userUpdateDto, String login);
 
 	public UserProfileDto removeUser(String id);
 	
@@ -17,6 +18,6 @@ public interface AccountService {
 	
 	public Set<String> removeRole(String id, String role);
 	
-	public void changePassword(String password);
+	public void changePassword(String password, String login);
 
 }

@@ -1,5 +1,6 @@
 package telran.forum.controller;
 
+import java.security.Principal;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import telran.forum.dto.UserProfileDto;
 import telran.forum.dto.UserRegisterDto;
+import telran.forum.dto.UserUpdateDto;
 import telran.forum.service.AccountService;
 
 @RestController
@@ -29,8 +31,8 @@ public class AccountManagmentController {
 	}
 	
 	@PutMapping
-	public UserProfileDto edit(@RequestBody UserRegisterDto userRegisterDto) {
-		return accountService.editUser(userRegisterDto);
+	public UserProfileDto edit(@RequestBody UserUpdateDto userUpdateDto, Principal principal) {
+		return accountService.editUser(userUpdateDto, principal.getName());
 	}
 	
 	@DeleteMapping("/{id}")
@@ -52,8 +54,8 @@ public class AccountManagmentController {
 	}
 	
 	@PutMapping("/password")
-	public void changePassword(@RequestHeader(value = "X-Password") String password) {
-		accountService.changePassword(password);
+	public void changePassword(@RequestHeader(value = "X-Password") String password, Principal principal) {
+		accountService.changePassword(password, principal.getName());
 	}
 
 }

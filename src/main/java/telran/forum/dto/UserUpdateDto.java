@@ -6,14 +6,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@NoArgsConstructor
 @AllArgsConstructor
-@Getter
+@NoArgsConstructor
 @Setter
+@Getter
 @Builder
-public class UserProfileDto {
-	String id;
+public class UserUpdateDto {
+	
 	String firstName;
 	String lastName;
-
 }
